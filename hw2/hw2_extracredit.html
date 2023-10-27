@@ -1,0 +1,118 @@
+<section id="extra-credit">
+    <h2>Extra Credit</h2>
+
+    <table width="200" border="1">
+    
+
+
+    <!-- Script for fading textbox -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#instructions").slideToggle("slow");
+        });
+    });
+    </script>     
+
+  <style> 
+  #instructions, #flip {
+    padding: 5px;
+    text-align: left;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+  }
+  
+  #instructions {
+    padding: 50px;
+    display: none;
+  }
+  </style>
+  </head>
+  <body>
+   
+  <div id="flip">Click to show/hide Instructions</div>
+  <div id="instructions">Enter a dollar amount in the table below to see the corresponding foreign exchange values.</div>
+  
+
+      </div>
+
+
+      <table>
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th>Exchange Rate</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+
+
+      <tr>
+        <td>Euro</td>
+        <td><script>document.write(0.84);</script></td>
+        <td><script>document.write(result6);</script></td>
+      </tr>
+      <tr>
+        <td>Canadian Dollar</td>
+        <td><script>document.write(1.23);</script></td>
+        <td><script>document.write(result7);</script></td>
+      </tr>
+      <tr>
+        <td>Hong Kong Dollar</td>
+        <td><script>document.write(7.76);</script></td>
+        <td><script>document.write(result8);</script></td>
+      </tr>
+      <tr>
+        <td>Japanese Yen</td>
+        <td><script>document.write(110.80);</script></td>
+        <td><script>document.write(result9);</script></td>
+      </tr>
+      <tr>
+        <td>Mexican Peso</td>
+        <td><script>document.write(19.82);</script></td>
+        <td><script>document.write(result10);</script></td>
+      </tr>
+      <tr>
+        <td>Enter Amount of U.S. Dollars</td>
+        <td><input type="number" name="usdollars" >;</td>
+      </tr>
+    </table>
+
+
+
+    <script>
+      function calculation2()
+      {
+          var rate1, rate2, rate3, rate4, rate5;
+      
+          num_us = parseInt(document.form.usdollars.value);
+
+          rate1 = 0.84 * num_us;
+          rate2 = 1.23 * num_us;
+          rate3 = 7.76 * num_us;
+          rate4 = 110.80 * num_us;
+          rate5 = 19.82 * num_us;
+          
+          document.form.result6.value = rate1;
+          document.form.result7.value = rate2;
+          document.form.result8.value = rate3;
+          document.form.result9.value = rate4;
+          document.form.result10.value = rate5;
+                                         
+      }
+      </script>
+
+
+<br>
+
+<a href="hw2.html">Back to Homework 2 main page</a>
+<br>
+
+
+
+
+
+

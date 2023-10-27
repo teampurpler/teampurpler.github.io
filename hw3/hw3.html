@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>JavaScript - Homework 3</title>
+    <meta name="description" content="Homework 3 for JavaScript, jQuery, AJAX course at CCSF">
+    <link rel="stylesheet" type="text/css" href="./hw3.css" >
+  </head>
+  <body>
+    <h2 class="h2-title">Homework3 Part 1 - Functions</h2>
+    <a href="../hw1.html"> Go back to Homework page</a>
+
+    <div class="hw" id="hw3-page" style="display: block;"> 
+               
+      <div class="hw3-content">
+        <div class="part1-content">
+          <div class="part1-info">
+            <div class="hw3-part1">
+              <img class="js-img" src="./func.jpg" alt="">
+              <div class="direction1">
+                <div class="right">
+                  <p class="h3-title">Part 1</p>
+                  <p>Create a webpage that contains:</p>
+                  <ul class="h3-list">
+                    <li>the heading Student Grades</li>
+                    <li>a form with input boxes for Homework Average, Mid-Term Exam Score, Final Exam Score, and Participation - all those grades will be entered as integers</li>
+                    <li>you should have a button for submitting the data and a button to clear the form</li>
+                    <li>you should have a button for submitting the data and a button to clear the form</li>
+                    <li>you should have a textarea (or div or paragraph element) to present final results and/or error message</li>
+                </ul>
+
+                <p class="logo"><a href="./hw3_part1.html"><img src="./website-icon-hi.png" alt=""></a>click button to the Part1 webpage</p>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="part2">
+          <p class="h3-title">Part 2</p>
+          <p>Create a web page</p>
+          <ul class="h3-list">
+            <li>he page will contain a script that includes at the top of your form a text box for the salesperson's name for the user to enter. </li>
+            <li>The user will input the quantity of items sold, for each item.
+                You will use that input to calculate how much the salesperson sold and how much he/she will earn, and then output the results.</li>
+            <li>Use input boxes to input the number sold for each of the items 1-4.</li>
+            <li>The results of total sold in dollars and the total money that will be received by the sale person should be right-justify</li>
+            
+          </ul>
+         <p class="logo"><a href="./hw3_part2.html"><img src="./website-icon-hi.png" alt=""></a>click button to the Part2 webpage</p>
+        </div>
+        <br>
+        <br>                
+        <br>
+        <br>
+         <div class="part3">
+          <p class="h3-title">Extra Credit</p>
+          <p>Create a web page</p>
+          <ul class="h3-list">
+            <li>Write a program that will help an elementary school student learn multiplication.</li>
+            <li>With those two numbers, you should present a question such as: How much is X times Y? where X is one of the random numbers and Y is the other random number</li>
+            <li>The student then types the answer into an input box you will provide.</li>
+            <li>Your program checks the student's answer.</li>
+            <li>If it is correct, display the message "Very good!" in a text area or another part of the page, and then shows a question to the user to see whether he/she wants to keep playing.
+              If the user responds YES (click on a button that says YES), you will then generate another question
+              If the user responds NO (click on a button that says NO), you will present a message such as "Thanks for playing, see you next time" and you will NOT present another question.</li>
+            </ul>
+         <p class="logo"><a href="./hw3_part3.html"><img src="./website-icon-hi.png" alt=""></a>click button to the Extra Credit webpage</p>
+        </div>
+      </div>  
+    </div>
+  </body>
+</html>
+
+
+<script>
+  $(function(){
+   $('.navi li').click(function(){
+     $(this).addClass('current').siblings().removeClass('current');
+     let index = $(this).index();
+    $('.hw-content .hw').eq(index).show().siblings().hide();
+   })
+  })
+
+  
+</script>

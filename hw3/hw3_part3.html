@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework 3 - Functions-part3</title>
+  <link rel="stylesheet" type="text/css" href="./hw3_part3.css" >
+</head>
+<body>
+  <div style="width: 200px; height: 30px; background-color: #ff0000;line-height: 30px; padding-left: 20px;">
+    <a href="./hw3.html" style="color: white;font-weight: bolder; margin:0 auto;">Back to Homepage</a>
+  </div>
+  <div class="box">
+    <div class="in-box" id="box1">
+      <p class="p1">First Number</p>
+      <p class="img1 num1">
+        <img src="./questionmark.png" alt="question mark image" >
+      </p>
+    </div>
+    <p class="by">x</p>
+    <div class="in-box" id="box2">
+      <p class="p1" >Second Number</p>
+      <div class="img1 num2">
+        <img src="./questionmark.png" alt="question mark image">
+      </div>
+    </div>
+    <p class=" by equ">=</p>
+    <div class="in-box box3" >
+      <p class="p1 p2">Enter Answer</p>
+      <input type="number" class="result" >
+     </div>
+     <div class="button"><button id="submit">submit</button></div>
+  </div>
+  
+  
+    <div class="info">
+      <p class="good">Very good!</p>
+      <br/>
+      <p>Do you want to keep playing?</p>
+        
+      <label for="yes"><input type="radio" name="seclect" id="yes"> yes</label>
+      <label for="no"><input type="radio" name="seclect" id="no">No </label>
+      <br/>
+      <button id="yesno">submit</button>
+    </div>
+
+    <div class="error">
+      <p class="del">x</p>
+      <p>Oh no. Please try again</p>
+    </div>
+  
+
+
+  <script>
+     let num1= document.querySelector('.num1');
+     let num2= document.querySelector('.num2');
+     let submit = document.querySelector('#submit');
+
+     let random1 = parseInt(Math.random()*10);
+     let random2 = parseInt(Math.random()*10);
+     
+     
+     
+      num1.onclick=function(){
+         num1.innerHTML =random1;
+      };
+
+      num2.onclick=function(){
+        num2.innerHTML = random2;
+      }
+
+      submit.onclick=function(){
+         let answer = +document.querySelector('.result').value;
+         let result = random1 * random2;
+         let info = document.querySelector('.info');
+         let box = document.querySelector('.box');
+         let error = document.querySelector('.error');
+         
+         let yesno =document.querySelector('#yesno');
+
+        
+         if(answer === result){
+          info.style.display = 'block';
+          box.style.display = 'none';
+          
+          yesno.onclick = function(){
+             if(document.querySelector('#yes').checked == true){
+                 info.style.display = 'none';
+                 box.style.display = 'block';
+                 random1 = parseInt(Math.random()*10);
+                 random2 = parseInt(Math.random()*10);
+                 
+          }else {
+             info.innerHTML = 'Thanks for playing, see you next time'
+          }
+          }
+         }else{
+            error.style.display = 'block';
+            let del = document.querySelector('.del');
+            del.onclick = function(){
+               error.style.display = 'none';
+            }
+
+         }
+       }
+      
+      
+      
+      
+      
+
+
+
+      
+  </script>
+  
+  
+</body>
+</html>

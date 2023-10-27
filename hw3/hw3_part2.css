@@ -1,0 +1,80 @@
+body {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  
+  label {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    height: 25px;
+  }
+  
+  #item1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 25px;
+  }
+  
+  #item2, #item3 {
+    margin-bottom: 10px;
+    height: 25px;
+  }
+  
+  #item4 {
+    height: 25px;
+  }
+  
+  table, th, td, tr {
+    border: 1px solid rgb(159, 133, 133);
+    border-collapse: collapse;
+  }
+  
+  table {
+    margin-top: 20px;
+  }
+  
+  .button {
+    padding-left: 30px;
+    padding-top: 20px;
+  }
+  
+  .error {
+    font-family:'Times New Roman', Times, serif;
+    color:rgba(197, 119, 2, 0.871);
+    font-size: 16px;
+  
+  }
+  
+  table input {
+    height: 100%;
+    border: none;
+  }
+  
+  .content-hw2 {
+    width: 600px;
+    border: 1px solid grey;
+    padding: 20px;
+  
+  }
+  
+  .total {
+     text-align:right;
+  }
+  
+  .label {
+    display: inline-block;
+    width: 5em;
+  }
+  .uitooltip {
+       padding: 8px;
+        background: #ff9b17;
+        position: absolute;
+        max-width: 300px;
+        -webkit-box-shadow: 0 0 5px #aaa;
+        box-shadow: 0 0 5px #5d2424;
+        font-size: 13px;
+        white-space: pre-line;
+        border-radius: 10px;
+     
+  }

@@ -1,0 +1,110 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 3 - Functions - part 1</title>
+    <link rel="stylesheet" type="text/css" href="./hw3_part1.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+   
+  </head>
+  <body>
+    <div style="width: 200px; height: 30px; background-color: #357b67;line-height: 30px; padding-left: 20px;">
+      <a href="hw3.html" style="color: hsl(0, 6%, 97%);font-weight: bolder; margin:0 auto;">Back to Homework3 page</a>
+      <br>
+      <br>
+    </div>
+    <h1 class="heading">Homework - part 1 - Student Grades</h1>
+    <div class="content">
+      <form class="form" novalidate="novalidate">
+        <label for="hw-average"> Homework Average:
+          <input type="number" id="hw-average" class="input" name="num" autofocus="">
+        </label>
+        <br>
+        <br>
+        <label for="Mid-Term"> Mid-Term Exam Score:
+          <input type="number" id="Mid-Term" class="input" name="num" autofocus="">
+        </label>
+        <br>
+        <br>
+        <label for="Final"> Final Exam Score:
+          <input type="number" id="Final" class="input" name="num" autofocus="">
+        </label>
+        <br>
+        <br>
+        <label for="paticipate"> Participation:
+          <input type="number" id="paticipate" class="input" name="num" autofocus="">
+        </label>
+      </form>
+      <div class="button">
+        <input type="button" value="submit" id="submit">
+        <input type="reset" id="reset">
+      </div>
+
+  
+    </div>
+    <br>
+    <br>
+    <h2>Results</h2>
+    <textarea class="result"></textarea>
+  
+     <script>
+  
+      $(function(){
+        $('.form').validate({
+          rules:
+          {
+            num:{required:true, number:true,min:0, max:100}
+          }
+        })
+      })
+     
+      let submit = document.querySelector('#submit')
+      let reset = document.getElementById('reset')
+  
+      submit.addEventListener('click', function(){
+         let ave = +document.getElementById('hw-average').value;
+         let midTerm = +document.getElementById('Mid-Term').value;
+         let final = +document.getElementById('Final').value;
+         let pati= +document.getElementById('paticipate').value;
+         let result = document.querySelector('.result');
+  
+         if(ave==''||midTerm==''||final==''||pati==""){
+          result.innerHTML = 'Unable to calculate, please input value number' 
+         }else {
+            let fiAverage = parseInt( 0.5*ave + 0.2*midTerm + 0.2*final + 0.1* pati);
+  
+           let lettergr;
+    
+           if(fiAverage>=90 && fiAverage<=100){
+               lettergr = 'A';
+            }else if(fiAverage>=80 && fiAverage<=89){
+              lettergr = 'B';
+            }else if(fiAverage>=70 && fiAverage<=79){
+              lettergr = 'C';
+            }else if(fiAverage>=60 && fiAverage<=69){
+              lettergr = 'D';
+            }else if(fiAverage>=0 && fiAverage<=59){
+              lettergr = 'E';
+            };
+  
+          
+            if (lettergr=='D'|| lettergr=='E'){
+              result.innerHTML = `The final average is ${fiAverage}, the letter grade is ${lettergr} , you must retake the course`
+            }else {
+              result.innerHTML = `The final average is ${fiAverage}, the letter grade is ${lettergr}  `
+            }
+         }
+       })
+  
+      reset.addEventListener('click', function(){
+        document.getElementById('hw-average').value = '';
+        document.getElementById('Mid-Term').value = '';
+        document.getElementById('Final').value= '';
+        document.getElementById('paticipate').value ='';
+      })
+      
+      
+    </script>
+  
+  
+  </body></html>

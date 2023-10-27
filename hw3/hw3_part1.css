@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  .heading {
+    margin-left: 85px;
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    width: 400px;
+    height: 350px;
+    border: 1px solid grey;
+    background-color: #fffdde;
+    padding: 20px;
+   
+  }
+  
+  
+  
+  .input {
+    width: 180px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    height: 30px;
+  }
+  
+  #hw-average {
+    margin-left: 20px;
+  }
+  
+  
+  #Final {
+    margin-left: 32px;
+  }
+  
+  #paticipate {
+      margin-left: 65px;
+  }
+  
+  .button {
+    margin-left: 90px;
+    margin-top: 20px;
+  
+  }
+  
+  #submit , #reset{
+    width: 80px;
+    height: 30px;
+    background-color: rgb(165, 145, 243);
+    border:1px solid rgb(104, 113, 240);
+    border-radius: 20px;
+    margin-right: 20px;
+    
+  }
+  
+  .result {
+    width: 400px;
+    height: 200px;
+    margin-top: 50px;
+  }
+  
+  .error {
+    font-size: 15px;
+    color:rgb(228, 97, 79);
+    margin-bottom: 20px;
+    
+    
+  }
