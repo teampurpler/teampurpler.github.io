@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="desciption" content="looping">
+<title>part 2</title>
+
+  <style>
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        th, td{
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+        tr:nth-child(2n){
+          background-color: rgb(148, 203, 239);
+        }
+        th{
+          background-color: #4997f1;
+        }
+    </style>
+ 
+</head>
+<body>
+<div style="width: 200px; height: 30px; background-color: #0f7be0;line-height: 30px; padding-left: 20px;">
+    <a href="./hw4.html" style="color: white;font-weight: bolder; margin:0 auto;">Back to Homepage</a>
+  </div>
+
+  <h1>Learn about compound interest</h1>
+  <br>
+  <div >
+    <h2>The interest rate of 5%</h2>
+    <div id="table1"></div>
+    <br>
+    <h2>The interest rate of 6%</h2>
+    <div id="table2"></div>
+    <br>
+    <h2>The interest rate of 7%</h2>
+    <div id="table3"></div>
+  </div>
+
+  <p> End of the Page </p>
+  <br>
+  
+
+ <script >
+
+
+  
+  const datas1 =[{Year:1, 'Amount on deposit':(1000*(1+0.05)**1).toFixed(2), 'Interest Rate':0.05},
+               {Yeard:2, 'Amount on deposit':(1000*(1+0.05)**2).toFixed(2),'Interest Rate':0.05},
+               {Year:3, 'Amount on deposit':(1000*(1+0.05)**3).toFixed(2), 'Interest Rate':0.05},
+               {Year:4, 'Amount on deposit':(1000*(1+0.05)**4).toFixed(2), 'Interest Rate':0.05},
+               {Year:5, 'Amount on deposit':(1000*(1+0.05)**5).toFixed(2), 'Interest Rate':0.05}
+              ];
+
+ const datas2 =[{Year:1, 'Amount on deposit':(1000*(1+0.06)**1).toFixed(2), 'Interest Rate':0.06},
+               {Yeard:2, 'Amount on deposit':(1000*(1+0.06)**2).toFixed(2),'Interest Rate':0.06},
+               {Year:3, 'Amount on deposit':(1000*(1+0.06)**3).toFixed(2), 'Interest Rate':0.06},
+               {Year:4, 'Amount on deposit':(1000*(1+0.06)**4).toFixed(2), 'Interest Rate':0.06},
+               {Year:5, 'Amount on deposit':(1000*(1+0.06)**5).toFixed(2), 'Interest Rate':0.06}
+              ];  
+  
+ const datas3 =[{Year:1, 'Amount on deposit':(1000*(1+0.07)**1..toFixed(2)), 'Interest Rate':0.07},
+               {Yeard:2, 'Amount on deposit':(1000*(1+0.07)**2).toFixed(2),'Interest Rate':0.07},
+               {Year:3, 'Amount on deposit':(1000*(1+0.07)**3).toFixed(2), 'Interest Rate':0.07},
+               {Year:4, 'Amount on deposit':(1000*(1+0.07)**4).toFixed(2), 'Interest Rate':0.07},
+               {Year:5, 'Amount on deposit':(1000*(1+0.07)**5).toFixed(2), 'Interest Rate':0.07}
+              ]; 
+
+              
+
+  function buildTable(data){
+    let table = document.createElement('table');
+    let tr = document.createElement('tr');
+     // for in iterey thead
+     for(let k in data[2]){
+      let th = document.createElement('th');
+      
+      th.innerHTML = k;
+      
+      tr.appendChild(th);
+     }
+
+     table.appendChild(tr);
+     data.forEach(item =>{
+      let tr = document.createElement('tr');
+      console.log(item)
+      for (let k in item){
+         let td = document.createElement('td');
+         td.innerText = item[k];
+         tr.appendChild(td);
+      }
+      table.appendChild(tr);
+     });
+
+    
+
+     return table ;
+  }
+
+  document.getElementById('table1').appendChild(buildTable(datas1));
+  document.getElementById('table2').appendChild(buildTable(datas2));
+  document.getElementById('table3').appendChild(buildTable(datas3));
+        
+ </script>
+</body>
+</html>
+

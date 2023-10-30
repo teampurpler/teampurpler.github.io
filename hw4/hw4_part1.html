@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="desciption" content="looping statements">
+  <title>homework4-part1</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
+  
+</head>
+<body>
+  <div style="width: 200px; height: 30px; background-color: #0f7be0;line-height: 25px; padding-left: 20px;">
+    <a href="./hw4.html" style="color: white;font-weight: bolder; margin:0 auto;"> Back to Homepage </a>
+  </div>
+
+  <h2 id="one">The result of 5 * 9 * 13 * 17 * 21 * 25 =   <span id="product"></span></h2>
+  <h2 id="two">The result of 5 + 9 + 13 + 17 + 21 + 25 =   <span id="sum"></span></h2>
+  <br>
+  <h2 id="three">The result of 3 * 6 * 9 * 12 * 15 * 18 =  <span id="product1"></span></h2>
+  <h2 id="four">The result of 3 * 6 * 9 * 12 * 15 * 18 =  <span id="sum1"></span></h2>
+
+  <script>
+
+    $(function(){
+      $('#one,#two,#three,#four').draggable();
+      
+    })
+    let sum = 0;
+    let product = 1;
+    for(let i = 5; i <= 25; i=i+4){
+      product = product * i ;
+      sum = sum + i ;
+    };
+
+    let i = 3;
+    let sum1 = 0;
+    let product1 = 1; 
+    while(i <= 18 ){
+      sum1 = sum1 + i;
+      product1 = product1 * i;
+      i = i+3;
+    }
+    
+   document.getElementById('sum').innerHTML = sum;
+   document.getElementById('product') .innerHTML = product.toLocaleString();
+   document.getElementById('sum1').innerHTML = sum1;
+   document.getElementById('product1').innerHTML = product1.toLocaleString();
+
+ </script>
+</body>
+</html>
