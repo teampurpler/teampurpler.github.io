@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="desciption" content="Array">
+    <title>homework5-part2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        
+        
+</head>
+<body>
+    <div style="width: 240px; height: 30px; background-color: #0f7be0;line-height: 26px; padding-left: 20px;">
+          <a href="./hw5.html" style="color: white;font-weight: bolder; margin:0 auto;"> Back to Homework 5 Overview </a>
+    </div>
+    <div id="pt2" class="hwParts">
+        <h5 class="header text-center" style = "font-size: 24px;"> Event handlers</h5>
+        <p class="text-center bg-gray-rounded text-black">
+            <strong>Difference between 2 pulldown menus:<br></strong>
+            The first pulldown menu should utilize an onchange event handler, which means it takes you to the destinations directly when you choose the URL.<br>
+            The second pulldown menu should utilize a button with an onclick event handler to navigate to a page after an option is selected, which means you will hit "GO" to go to the destinations.
+        </p>
+        <br>
+        <h5 class="header text-center" style = "font-size: 24px;">URL Destinations</h5>
+        <div class="bg-gray-rounded flex-column">
+            <div class="container mb-3 d-flex">
+                <label for="onChangeSelect" class="label-extended">Choose your favorite projects: </label>
+                <select id="onChangeSelect" class="w-50">
+                    <option value disabled selected>Select</option>
+                    <option value="https://www.youtube.com/watch?v=3PHXvlpOkf4">15 JavaScript projects</option>
+                    <option value="https://www.youtube.com/watch?v=8ext9G7xspg">12 Python Projects</option>
+                    <option value="https://www.youtube.com/watch?v=EWv2jnhZErc">16 HTML+CSS Projects</option>
+                </select>
+            </div>
+            <br>
+            <div class="container mb-3 d-flex">
+                <label for="onClickSelect" class="label-extended">Choose what you want to learn: </label>
+                <select id="onClickSelect" class="w-50">
+                    <option value disabled selected>Select</option>
+                    <option value="https://www.youtube.com/watch?v=3PHXvlpOkf4">15 JavaScript projects</option>
+                    <option value="https://www.youtube.com/watch?v=8ext9G7xspg">12 Python Projects</option>
+                    <option value="https://www.youtube.com/watch?v=EWv2jnhZErc">16 HTML+CSS Projects</option>
+                </select>
+            </div>
+            <br>
+           <button id="onClickVisitButton" class="btn-class-only-2 w-50">GO</button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const onChangeField = document.getElementById("onChangeSelect");
+    const onClickField = document.getElementById("onClickSelect");
+    const onClickVisitButton = document.getElementById("onClickVisitButton");
+
+    const websites = [
+        ["15 JavaScript projects", "https://www.youtube.com/watch?v=3PHXvlpOkf4"],
+        ["12 Python Projects", "https://www.youtube.com/watch?v=8ext9G7xspg"],
+        ["16 HTML+CSS Projects", "https://www.youtube.com/watch?v=EWv2jnhZErc"],
+    ]
+    
+    websites.forEach(([name, url]) => {
+        const option1 = document.createElement("option");
+        option1.value = url;
+        option1.textContent = name;
+
+        onChangeField.appendChild(option1);
+
+        const option2 = document.createElement("option");
+        option2.value = url;
+        option2.textContent = name;
+        onClickField.appendChild(option2);
+
+    });
+
+    onChangeField.addEventListener("change", () => {
+        const selectedUrl = onChangeField.value;
+        if (selectedUrl) {
+            window.open(selectedUrl, "_blank");
+        }
+    })
+
+    onClickVisitButton.addEventListener("click", () => {
+        const selectedUrl = onClickField.value;
+        if (selectedUrl) {
+            window.open(selectedUrl, "_blank");
+        }
+    })
+
+
+</script>
+</html>

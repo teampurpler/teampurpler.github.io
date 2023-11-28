@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="desciption" content="Array">
+    <title>homework5-part1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        
+        
+    </head>
+<body>
+    <div style="width: 240px; height: 30px; background-color: #0f7be0;line-height: 26px; padding-left: 20px;">
+          <a href="./hw5.html" style="color: white;font-weight: bolder; margin:0 auto;"> Back to Homework 5 Overview </a>
+    </div>
+<div id="pt1" class="hwParts">
+    <h5 class="header text-center" style = "font-size: 24px;">
+        Form validations &amp; submissons
+        </h5>
+    <div class="form-container d-flex justify-content-center">
+        <form id="hw5pt1form">
+            <div class="nameGroup mb-3">
+                <label for="userName">Name:</label>
+                <input id="userName" type="text">
+            </div>
+            <br>
+            <div class="ageGroup d-flex mb-3">
+                <fieldset class="container d-flex justify-content-center">
+                    <legend class="hw5-legend">Age:</legend>
+                    <div class="d-right">
+                        <div class="d-flex">
+                            <input type="radio" id="ageGroup1" name="ageGroup" value="less than 21" required="">
+                            <label for="ageGroup1">Under 21</label>
+                        </div>
+                        <div class="d-flex">
+                            <input type="radio" id="ageGroup2" name="ageGroup" value="21 to 50" required="">
+                            <label for="ageGroup2">21 to 50</label>
+                        </div>
+                        <div class="d-flex">
+                            <input type="radio" id="ageGroup3" name="ageGroup" value="older than 50" required="">
+                            <label for="ageGroup3">Over 50</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="browsers d-flex mb-3">
+                <fieldset class="container d-flex justify-content-center">
+                    <legend class="hw5-legend">Browsers:</legend>
+                    <div class="d-right">
+                        <div class="d-flex">
+                            <input type="checkbox" id="firefox" name="browsers" value="Firefox">
+                            <label for="firefox">Firefox</label>
+                        </div>
+                        <div class="d-flex">
+                            <input type="checkbox" id="edge" name="browsers" value="Edge">
+                            <label for="edge">Edge</label>
+                        </div>
+                        <div class="d-flex">
+                            <input type="checkbox" id="chrome" name="browsers" value="Chrome">
+                            <label for="chrome">Chrome</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <br>
+
+            <label for="movieType">Movie Preference:</label>
+            <div class="movies d-flex">
+                <select id="movieType" name="movieType" class="d-flex flex-fill" required="">
+                    <option value="" disabled="" selected="">Select Movie Type</option>
+                <option value="Action">Action</option><option value="Comedy">Comedy</option><option value="Drama">Drama</option><option value="Documentary">Documentary</option><option value="Science Fiction">Science Fiction</option></select>
+            </div>
+            <br>
+            <div class="container text-center mt-3">
+                <button type="submit" class="btn-class-only">Submit</button>
+                <button type="reset" class="btn-class-only">Clear</button>
+            </div>
+        </form>
+    </div>
+    <div class="output-area text-center mt-4">
+        <p id="output-message"></p>
+    </div>
+</div>
+</body>
+
+<script>
+    const form = document.getElementById("hw5pt1form");
+    const outputMessage = document.getElementById("output-message");
+    
+    const movieTypes = ["Action", "Comedy", "Drama", "Documentary", "Science Fiction"];
+    const selectElement = document.getElementById("movieType");
+
+    movieTypes.forEach((type) => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.text = type;
+        selectElement.appendChild(option);
+    });
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); // 
+
+        // Retrieve form data
+        const userName = document.getElementById("userName").value;
+        const ageGroup = document.querySelector("input[name='ageGroup']:checked");
+        const browsers = document.querySelectorAll("input[name='browsers']:checked");
+        const movieType = document.getElementById("movieType").value;
+
+        // Check if all required fields are filled
+        if (userName.trim() === "") {
+            showMessage("Please enter your name.");
+        } else if (!ageGroup) {
+            showMessage("Please select your age group.");
+        } else if (browsers.length === 0) {
+            showMessage("Please select at least one browser.");
+        } else if (movieType === "") {
+            showMessage("Please select your movie preference.");
+        } else {
+            showMessage("Thanks, your data was submitted!");
+            form.reset(); // Clear the form
+        }
+    });
+
+    
+    function showMessage(message) {
+        outputMessage.textContent = message;
+    }
+
+
+</script>
+</html>
