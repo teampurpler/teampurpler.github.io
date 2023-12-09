@@ -1,0 +1,39 @@
+.hw6-text {
+    text-align: center;
+}
+
+.button-1 {
+    width: 250px;
+    height: 60px;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-right: 8px;
+    text-align: center;
+    color: black;
+
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+body {
+    background-color: #fff;
+    color: #333;
+}
+
+
+
+input {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.error-message {
+    color: rgb(239, 59, 98);
+    margin-top: 10px;
+    max-width: 70%;
+    font-size: 16px;
+}

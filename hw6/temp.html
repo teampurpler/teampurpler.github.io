@@ -1,0 +1,134 @@
+<!DOCTYPE html>  
+<html lang="en">
+    <head> 
+        <meta charset="utf-8">
+        <meta name="description" content="Objects exercise - math round with jQuery">
+        <title>Math Rounding</title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        <script>
+        
+        
+        /* When user clicks button whose id=roundBtn then execute the function roundNumber()
+        Clicking the reset button will clear the form fields and an error msg, if dispayed
+        When the page first loads or reset button is clicked then focus the cursor at the form input field  */
+        
+        
+                $(document).ready(function () {
+                    /* when this document is ready to go */
+                    $("#hidden").hover(function() {
+                        $(this).css("color", "black");
+                        },
+                       function() {
+                        $(this).hide();
+                       }
+                    );
+
+                    $("#roundBtn").click(roundNumber);
+                    $(":reset").click(function () {
+                        $("#errOut").html("");
+                        $("#number").focus();
+                    });
+                    $("#number").focus();
+                });
+        
+         
+                function roundNumber() {
+                    var errMsg = "Invalid input";
+        
+        
+        /*  Use the val() function to to check the input field for numbers 
+        and if not then display an error msg */
+        
+        
+                    if (isNaN($("#number").val()) || ($("#number").val()) == "") {
+                        $("#errOut").html(errMsg);
+        
+                    } else {
+        
+        
+        /*  Use the val() function to get input field value */
+        
+                        var num = parseFloat($("#number").val());
+        
+        
+        /*  Use the val() function to display output field value */
+        
+                        $("#output").val(
+                                "The entered number: " + num +
+                                        "\n rounded to the nearest integer using math round: " +
+                                        roundToIntegerRound(num) +
+                                        "\n rounded to the nearest integer using math floor: " +
+                                        roundToIntegerFloor(num) +
+                                        "\n rounded to the nearest tenth using toFixed: " +
+                                        roundToTenthsTofixed(num) +
+                                        "\n rounded to the nearest hundredth using math floor: " +
+                                        roundToHundredthsFloor(num) +
+                                        "\n rounded to the nearest hundredth using math round: " +
+                                        roundToHundredthsRound(num));
+                    }
+                }
+        
+                function roundToIntegerRound(number) {
+                    return( Math.round(number) );
+                }
+        
+                function roundToIntegerFloor(number) {
+                    return( Math.floor(number + .5) );
+                }
+        
+                function roundToTenthsTofixed(number) {
+                    return( number.toFixed(1));
+                }
+        
+                function roundToHundredthsFloor(number) {
+                    return( Math.floor(number * 100 + .5) / 100 );
+                }
+                function roundToHundredthsRound(number) {
+                    return( Math.round(number * 100) / 100 );
+                }
+        
+        </script>
+        
+        <style>
+                body {
+                    background-color: #808080;
+                    color: white;
+                }
+        
+                .body {
+                    width: 415px;
+                    margin: 0px auto;
+                }
+        
+                div {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: yellow;
+                }
+        </style>
+    </head>
+
+
+    <body>
+
+            <section class="body">
+                <h1 style="text-align: center; color:white;" id = "hidden"> I was hidden! </h1>
+                <button> Alert me! </button>
+                <h3>Math objects</h3>
+
+            
+                <div id="errOut"></div>
+                <form name="myForm" id="myForm">
+                    <label for="number">Enter a number with at least 3 decimal positions:</label><br>
+                    <input id="number" name="number" type="text" size="30">
+                    <input id="roundBtn" type="button" value="Round"><br>
+                    <textarea id="output" rows="8" cols="60" readonly=""></textarea><br>
+                    <input type="reset" value="Reset">
+                </form>
+            </section>
+            
+    </body>
+   
+</html>

@@ -1,0 +1,164 @@
+ <!DOCTYPE html>  
+  <!--  ensures that the web page is parsed the same way by different web browsers -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--Unicode Transformation Format 8 
+        The charset attribute specifies the character encoding for the HTML document. 
+        The HTML5 specification encourages web developers to use the UTF-8 character set,-->
+    <meta name="description" content="Objects - opening a window to Yahoo! web">
+    <meta name = "description" content = "Passing html and css to pop up window">
+    <title> Opening a New Windows </title>
+  </head>
+
+
+  <body style="background-color:lightblue;">
+    <h2> Link to the Popup Window </h2>
+    <p>
+        Here is the
+        <a href="#" onclick= "window.open('http://www.yahoo.com/', 'marian', 'width=500,height=400');">
+            Yahoo! Website in a Pop Up</a>
+            <!-- # will move the scroll position to the top.-->
+    </p>
+    <h2>Link to popup window 2</h2>
+    <p>
+        <a href="#" onclick="doStuff();">Calling doStuff</a>
+    </p>
+    <br>
+    <br>
+    <section class = "second body">
+        <h3>
+            Pass data to popup window
+        </h3>
+        <form name = "myForm">
+            <p>
+                <strong>Enter your name: </strong>
+                <input type = "text" size = "20" name = "practice" id = "practice1">
+                <br>
+                <br>
+                <input type = "button" value = "Pass the data to popup window" onclick = "passData()">
+            </p>
+        </form>
+    </section>
+
+    <section class="body">
+
+        <h3>Regular Expressions</h3>
+        
+              <form name="myForm">
+                 <table>
+                    <tbody><tr>
+                       <td><label for="input">Enter a Phone number<br>
+                          [in the form (999) 999-9999]</label>
+                       </td>
+                       <td>
+                          <input name="input" type="text" id="input" size="20" autofocus="">
+                       </td>
+                    </tr>
+                    <tr>
+                       <td colspan="2">
+                          <input type="button" value="Submit" onclick="checkExp()">
+                       </td>
+                    </tr>
+                    <tr>
+                       <td colspan="2" id="msg">
+                       </td>
+                    </tr>
+                    
+                 </tbody></table>
+                 <input type="reset" value="Reset" onclick="window.location.reload();">
+              </form>
+        </section>
+
+  </body>
+
+
+  <script>
+    function doStuff() {
+        alert("You will see the yahoo!");
+        window.open("http://www.yahoo.com/", "marian", "width=500,height=400")
+    }
+
+    function passData() {
+        var name = document.getElementById("practice1").value;
+
+        var myText = "<DOCTYPE html>\n";
+        myText += "<html lang='en'>\n";
+        myText += "<head>\n";
+        myText += "<title>Popup Window</title>\n";
+        myText += "</head>\n";
+        myText += "<body>\n";
+        myText += "<div style='margin:0 auto;'>\n";
+        myText += "<p><strong>Your name is " + name + " !</strong></p>\n";
+        myText += "<input type='button' value='Close Window' onclick='window.close()'>\n";
+        myText += "</div>\n";
+        myText += "</body>\n";  
+        myText += "</html>";
+
+       // open window on the upperleft of the screen
+
+        var newWindow = window.open("", "new_window",
+        "top=1,left=1,width=200,height=120");
+
+        newWindow.opener = null;   // this is for security!!!
+
+        // have browser focus on window
+        newWindow.focus();
+
+        // pump html into to this new opened window
+        newWindow.document.write(myText);
+
+        // tell browser that newWindow document is finished loading
+        newWindow.document.close();
+        }
+
+        // checking valid number 
+
+          
+          function checkExp() {
+       
+             var errMsg = "Invalid phone #";
+             var phoneNumber = document.forms["myForm"].elements["input"].value;
+ 
+ 
+               phoneRegExp = /^(\()(\d{3})(\))(\s)(\d{3})(-\d{4})$/;
+             
+             if ( !phoneRegExp.test(phoneNumber))
+             document.getElementById("msg").innerHTML = "inputted phone# with wrong format<br>Please use exactly (999) 999-9999<br>where each 9 represents a number";
+ 
+             else  {  
+                document.getElementById("msg").innerHTML = "Thank you! This is a valid phone number!";
+                  }
+ 
+          }
+           
+          function Run() {
+                var input, tokens, i;
+                input = window.prompt("Enter a sentence please","")
+                tokens = input.split(" ")
+
+                for (i = tokens.length-1; i>= 0; i--){
+                    document.write(tokens[i]+ " ");
+                }
+            }
+  </script>
+  <style>
+
+    body {color: rgb(47, 144, 209);}
+    .body { width: 415px; border: 2px solid rgb(62, 140, 199); margin: 0px auto;}
+
+    section {font-size: 1.2rem; font-weight: bold; padding: 10px; }
+
+    #msg { font-size: 0.9rem; font-style:italic; color: rgb(214, 156, 75); }
+
+    table
+    {
+     border-collapse:collapse;
+    }
+
+    table, td
+    {
+     border:1px solid rgb(60, 151, 203);
+    }
+   </style>
+</html>

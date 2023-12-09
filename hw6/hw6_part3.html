@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="HW6 part3 - Extract the phone numbers">
+        <title>CNIT133 - Hw6 hw6_part3 </title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <style>
+            body {
+                background-color: #fff;
+                color: #333;
+            }
+
+            .box {
+                width: 410px;
+                margin: 0px auto;
+                padding-left: 70px;
+                padding-top: 20px;      
+                padding-bottom: 20px;
+                background-color: #e1cfe4;
+            }
+
+            button {
+                background-color: rgb(137, 100, 240);
+                color: rgb(228, 225, 231);
+                text-align: center;
+            }
+    
+        </style>
+
+    <script>//jquery mask for phone # input 
+        $(document).ready(function (){
+            $('#phoneNumberInput').mask('(999) 999-9999');
+        });
+        function processPhoneNumber() {
+            $('#areaCodeOutput').val('');
+            $('#firstThreeDigitsOutput').val('');
+            $('#lastFourDigitsOutput').val('');
+            $('#errorMessage').text('');
+
+            var phoneNumber = $('#phoneNumberInput').val();
+            var pattern = /^\(\d{3}\) \d{3}-\d{4}$/;
+            
+            if (pattern.test(phoneNumber)) {
+                var parts = phoneNumber.match(/\d+/g);
+                $('#areaCodeOutput').val(parts[0]);
+                $('#firstThreeDigitsOutput').val(parts[1]);
+                $('#lastFourDigitsOutput').val(parts[2]);
+            } else {
+                $('#errorMessage').text('Please enter the phone number in the format (999) 999-9999.');
+            }
+        }
+        function clearForm() {
+            $('#phoneNumberInput').val('');
+            $('#areaCodeOutput').val('');
+            $('#firstThreeDigitsOutput').val('');
+            $('#lastFourDigitsOutput').val('');
+            $('#errorMessage').text('');
+        }
+    </script>
+    
+    </head>
+
+    <body>
+        <header class = "header">
+            <a href = "hw6.html" class=" Home botton">Go Back to Hw6 Homepage</a>
+        </header>
+        <section>
+            <div>
+                <div class = "row">
+                    <h2 class = "hw6-text"> Hw6 - Part3 <br>Extract Phone numbers</h2>
+                    <br>
+                </div>
+            </div>
+            <container>
+                <article class = "box">
+                    <h3 style = "text-align: left;"> Extract Phone #</h3>
+                    <input type="text" id="phoneNumberInput" size="30" placeholder="(999) 999-9999" maxlength="14">
+                    <br>
+                    <input type="text" id="areaCodeOutput" size="6" readonly="">
+                    <input type="text" id="firstThreeDigitsOutput" size="6" readonly="">
+                    <input type="text" id="lastFourDigitsOutput" size="10" readonly="">
+                    <br>
+                    <button onclick="processPhoneNumber()">Submit</button>
+                    <button onclick="clearForm()">Reset</button>
+                    <div id="errorMessage" class="error-message"></div>
+                </article>
+            </container>
+        </section>
+    </body>
+</html>

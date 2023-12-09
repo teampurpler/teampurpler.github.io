@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="HW6 part2 - Search Characters">
+        <title>CNIT133 - Hw6 hw6_part2 </title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body {
+                background-color: #fff;
+                color: #333;
+            }
+    
+            .box {
+            width: 450px;
+            margin: 0px auto;
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            background-color: #ebd7f0;
+            font-size: 18px;
+        }
+    
+            button {
+                background-color: #acb5eb;
+                border: none;
+                color: rgb(20, 19, 19);
+                padding: 4px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 3px 2px;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+        </style>
+
+    <script>
+    function searchCh() {
+
+        var content = document.getElementById('longtext').value;
+
+        var searchChar = document.getElementById('searchChar').value.toLowerCase();
+
+
+        var count = 0;
+        for (var i = 0; i < content.length; i++) {
+            if (content.charAt(i).toLowerCase() === searchChar) {
+                count++;
+            }
+        }
+
+        if (count > 0) {
+            document.getElementById('result').innerText = "Character '" + searchChar + "' was found " + count + " times in the content.";
+        } else {
+            var newWindow = window.open("", "_blank", "width=300,height=100,top=200,left=550");
+            newWindow.document.write("<p>Search characters '" + searchChar + "' not found in the content</p>");
+
+            newWindow.document.write("<button onclick='window.close()'>Close</button>");
+
+            document.getElementById('result').innerText = "";
+        }
+    }
+    </script>
+    
+    </head>
+    <body>
+        <header class = "header">
+            <a href = "hw6.html" class=" Home botton">Go Back to Hw6 Homepage</a>
+        </header>
+        <section>
+            <div>
+                <div class = "row">
+                    <h2 class = "hw6-text"> Hw6 - Part2 <br>Search Character</h2>
+                    <br>
+                </div>
+            </div>
+            <container>
+                <article class = "box">
+                    <h3 style = "text-align: center;">Search Character</h3>
+                    <br>
+                    <form onsubmit="event.preventDefault(); searchCh();">
+                        <label for ="longtext"> Type or paste a long text below: </label>
+                        <br>
+                        <br>
+                        <textarea id = "longtext" row ="4" cols = "50"></textarea>
+                        <br>
+                        <button type = "button" value ="Reset" onclick = "this.form.reset();">Reset</button>
+                        <br>
+                        <br>
+                        <label for ="searchChar">Search a character: </label>
+                        <input type ="text" id = "searchChar" maxlength="1" size = "9">
+                        <button type = "submit" value = "Search"> Search</button>
+                    </form>
+                    <div id = "result"></div>
+                    
+                </article>
+            </container>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="HW6 part1 - Math round numbers">
+        <title>CNIT133-Hw6 Part1 </title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body {
+                background-color: #fff;
+                color: #333;
+            }
+    
+            .table {
+                width: 550px;
+                margin: 0px auto;
+                padding-left: 20px;
+                padding-top: 20px;
+                padding-right: 20px;
+                padding-bottom: 20px;
+                background-color: #e8dbf0;
+                font-size: 18px;
+            }
+    
+            button {
+                background-color: #acb5eb;
+                border: none;
+                color: rgb(20, 19, 19);
+                padding: 4px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 3px 2px;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+        </style>
+    
+        <script>
+            function roundNumber() {
+                var re = new RegExp("^\\d+(\\.\\d{4,})?$");
+                var errMsg = "please try again";
+    
+                if (document.getElementById("number").value === "" || !re.test(document.getElementById("number").value)) {
+                    document.getElementById("errOut").innerHTML = errMsg;
+                    document.getElementById("output").value = "";
+                } else {
+                    var num = parseFloat(document.getElementById("number").value);
+    
+                    document.myForm.output.value =
+                        "You typed number " + num.toFixed(4) + "\n" +
+                        "Rounded to the nearest integer = " + roundToInteger(num) + "\n" +
+                        "Square root rounded to integer = " + squareRootRouToInteger(num) + "\n" +
+                        "Rounded to the nearest 10th position = " + roundToTenthsTofixed(num) + "\n" +
+                        "Rounded to the nearest 100th position = " + roundToHundredthsFloor(num) + "\n" +
+                        "Rounded to the nearest 1000th position = " + roundToThousandthsFloor(num);
+    
+                    document.getElementById("errOut").innerHTML = "";
+                }
+            }
+    
+            function roundToInteger(number) {
+                return Math.round(number);
+            }
+    
+            function squareRootRouToInteger(number) {
+                return Math.round(Math.sqrt(number));
+            }
+    
+            function roundToTenthsTofixed(number) {
+                return number.toFixed(1);
+            }
+    
+            function roundToHundredthsFloor(number) {
+                return Math.floor(number * 100 + 0.5) / 100;
+            }
+    
+            function roundToThousandthsFloor(number) {
+                return Math.floor(number * 1000 + 0.5) / 1000;
+            }
+    
+            function res() {
+                document.getElementById("errOut").innerHTML = "";
+                document.getElementById("number").focus();
+            }
+        </script>
+    
+    </head>
+    <body>
+        <header class = "header">
+            <a href = "hw6.html" class=" Home botton">Go Back to Hw6 Homepage</a>
+        </header>
+        <section>
+            <div>
+                <div class = "row">
+                    <h2 class = "hw6-text"> Hw6 Part1 Round Numbers</h2>
+                    <br>
+                </div>
+            </div>
+            <container onload = "document.getElementById('number').focus();">
+                <article class = "table">
+                    <form name = "myForm">
+                        <label>Enter a number with at least 4 decimal points: </label>
+                        <br>
+                        <input type ="text" id = "number" pattern = "\\d+(\\.\\d{4.})?">
+                        <button type="button" value = "Round" onclick ="roundNumber()"> Round Number
+                        </button>
+                        <button type ="reset" value = "Reset" onclick="res();"> Reset Number
+                        </button>
+                        <br>
+
+                        <div id = "errOut" style ="color: red;"></div>
+                        <br>
+                        <textarea name="output" id ="output" row = "10" cols = "70" readonly style = "width: 480px; height: 200px;"></textarea>
+                        <br>
+
+                    </form>
+                </article>
+            </container>
+
+        </section>
+
+    </body>
+
+</html>
