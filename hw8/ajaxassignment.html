@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homework 8 - AJAX Application</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Homework 7 for JavaScript, jQuery, AJAX course at CCSF">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="hw8.css">
+
+  <header>
+    <h1>Homework 8 - AJAX Application</h1>
+  </header>
+  <nav>
+    <button type="button" onclick="window.location.href='../hw1.html';">Going back to Homepage</button>
+    <br>
+    <br>
+  </nav>  
+
+</head>
+
+
+<style>
+        main{
+            padding: 5%;
+        }
+        .text{
+            margin: 10px 30px;
+            border-style: outset;
+            border-color: #6e31d7;
+            padding: 30px 60px;
+        }
+        button{
+            margin-top: 4%;
+        }
+        i{
+            text-decoration: underline;
+        }
+        #demo{
+            display: inline-table;
+        }
+        table,th,td{
+          border : 1px solid black;
+          border-collapse: collapse;
+        }
+        th,td{
+          padding: 5px;
+        }
+        ul{
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+        }
+        h4, ul{
+            text-align: left;
+        }
+/* table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+} */
+</style>
+
+<body>
+  <main>
+    <h2><u>how AJAX works in the example below</u></h2>
+    <br>
+    <div class="text">
+        <p>When you click "Get CD collection" bellow, the function loadDoc() send a request to the server using the open() and send()
+             methods to get the info from the "cd_catalog.xml" file. Then it passes the retrieved information as a parameter for the function myFunction(xml)</p>
+        <p>myFunction() separates the information by tagName("CD"), then it inserts the table id "demo" the content from the xml file</p>
+    </div>
+    <button type="button" onclick="loadDoc()">Get CD collection</button>
+    <br><br>
+      <table id="demo"><tbody><tr><th>Artist</th><th>Title</th></tr><tr><td>Bonnie Tyler</td><td>Hide your heart</td></tr><tr><td>Dr.Hook</td><td>Sylvias Mother</td></tr><tr><td>Rod Stewart</td><td>Maggie May</td></tr><tr><td>Cat Stevens</td><td>The very best of</td></tr><tr><td>Sam Brown</td><td>Stop</td></tr><tr><td>T'Pau</td><td>Bridge of Spies</td></tr><tr><td>The Communards</td><td>Red</td></tr><tr><td>Joe Cocker</td><td>Unchain my heart</td></tr><tr><td>Jocelyne Alcantara</td><td>El Gato Volador</td></tr></tbody></table>
+    <br>
+    <br>
+    <h2><u>News API</u></h2>
+    <br>
+    <div class="text">
+        <p>The <i><a href="https://apilist.fun/api/news" target="_blank">News API</a></i> is a perfect fit for our app "Community". We've been looking for ways to keep our users informed with current and relevant information, and this API provides a reliable and up-to-date source of news data that can enhance user experience and engagement by offering real-time content.</p>
+        <p>Additionally, the API's structured data format simplifies the process of retrieving and displaying news articles, saving us time and effort in implementing news-related features. It will allow us to filter the news content by keyword, publication or topic.</p>
+        <p>We can get and search for news from over 30,000 publications with this simple and free (for non commercial projects) API without having to worry about maintaining a large news database.</p>
+        <p>The API also have a great documentation that can be found <a href="https://newsapi.org/docs" target="_blank">here</a>.</p>
+        <h4>More about the <a href="https://newsapi.org/" target="_blank">News API</a>:</h4>
+        <ul>
+            <li>Request format: JSON</li>
+            <li>Response format: JSON</li>
+            <li>Requires apiKey</li>
+            <li>This is an official API</li>
+            <li>Offers SSL Support</li>
+            <li>Free(for non commercial projects)</li>
+        </ul>
+    </div>
+</main>
+
+<br><br>
+
+
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    myFunction(this);
+  }
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="<tr><th>Artist</th><th>Title</th></tr>";
+  for (let i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+
+
+
+</body>
+</html>
