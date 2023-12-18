@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CNIT 133 Homework 7</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Homework 7 for JavaScript, jQuery, AJAX course at CCSF">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="script7.js"></script>
+  </head>
+   <style>
+    h2{
+        text-align: center;
+    }
+    #menu{
+        margin-left: 24%;
+    }
+    .menuItem ul li, .menuItem a{
+        display: block;
+    }
+    .menuItem{
+        background-color:rgb(115, 102, 220); 
+        float:left;
+        display:inline;
+    }
+    .menuItem:hover{
+        background:rgb(115, 102, 220);
+    }
+    .menuItem a{
+        padding:15px 25px; 
+        color:#ecf5ff;
+    }
+    .menuItem a:hover{
+        color:#413d3d;
+    }
+    .menuItem ul{
+        width:70%; 
+        background:#fff;
+        padding: 20px;
+    }
+    .menuItem ul li a{
+        padding:15px 10px; 
+        color:#986e6e;
+    }
+    .menuItem ul li a:hover{
+        color:rgb(79, 163, 209);
+        font-weight: bold;
+    }
+   </style>
+  <body>
+    <main>
+        <h2>Navigation Menu using jQuery</h2>
+        <br>
+        <ul id="menu">
+             <li class="menuItem"><b><a href="#">Homework 2</a></b>
+               <ul style="display: none; height: 168px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+                 <li><a href="../hw2/hw2_part1.html">Part 1</a></li>
+                 <li><a href="../hw2/hw2_part2.html">Part 2</a></li>
+                 <li><a href="../hw2/hw2_extracredit.html">Extra Credit</a></li>
+               </ul>
+             </li>
+
+             <li class="menuItem"><b><a href="#">Homework 3</a></b>
+               <ul style="display: none; height: 99px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+                <li><a href="../hw3/hw3_part1.html">Part 1</a></li>
+                <li><a href="../hw3/hw3_part2.html">Part 2</a></li>
+                <li><a href="../hw3/hw3_part3.html">Part 3</a></li>
+               </ul>
+             </li>
+             <li class="menuItem"><b><a href="#">Homework 4</a></b>
+               <ul style="display: none; height: 99px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+                <li><a href="../hw4/hw4_part1.html">Part 1</a></li>
+                <li><a href="../hw4/hw4_part2.html">Part 2</a></li>
+                <li><a href="../hw4/hw4_part3.html">Part 3</a></li>
+               </ul>
+             </li>
+         </ul>
+    </main>
+    <br>
+    <footer class = "footer">
+        <a href = "hw7.html" class=" Home botton">Go Back to Hw7 Homepage</a>
+    </footer>
+    
+  </body>
+
+  <script>
+    $(document).ready(function(){
+        $('#menu li ul').hide();
+        $('.menuItem').hover(
+            function(){
+                $('ul', this).stop().slideDown(200);
+            },
+            function(){
+                $('ul', this).stop().slideUp(200);
+            }
+        );
+    });
+   </script>
+
+</html>
+

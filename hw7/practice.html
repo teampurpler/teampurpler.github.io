@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head> 
+    <meta charset="utf-8">
+    <meta name="description" content="working with onmouseover and onmouseout events">
+    <title>Events example 1</title>
+    <script>
+        function mouseImg() {
+            document.getElementById('gor').scr = ""
+        }
+        function normalImg() {
+            document.getElementById('gor').src = ""
+        }
+
+    </script>
+    
+    </head>
+    <body>
+    
+    <img onmouseover="mouseImg()" onmouseout="normalImg()" id="gor" src="gorilla.gif" alt="gorilla on a tree" width="94" height="157">
+    
+    <p>Notice that both events - onmouseover and onmouseout - were coded inside the same img element.</p>
+    <p>The function mouseImg() is triggered when the user moves the mouse pointer over the image.</p>
+    <p>The function normalImg() is triggered when the mouse pointer is moved out of the image.</p>
+    
+    
+    </body>
+    </html>

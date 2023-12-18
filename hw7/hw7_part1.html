@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CNIT 133 Homework 7</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Homework 7 for JavaScript, jQuery, AJAX course at CCSF">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="script7.js"></script>
+  </head>
+
+  <style>
+    h5 {
+        text-decoration: solid;
+        font-size: larger;
+    }
+
+    .custom-radios div {
+    display: inline-block;
+    }
+    .custom-radios input[type="radio"] {
+    display: none;
+    }
+    .custom-radios input[type="radio"] + label {
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    }
+    .custom-radios input[type="radio"] + label span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: -1px 4px 0 0;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 35px;
+    }
+    .custom-radios input[type="radio"] + label span img {
+    opacity: 0;
+    transition: all 0.3s ease;
+    }
+
+    .custom-radios input[type="radio"]:checked + label span img {
+    opacity: 1;
+    } 
+
+    #checkboxContainer input[type="checkbox"] {
+    display: none; 
+    }
+
+    #checkboxContainer label {
+    display: inline-block;
+    margin-right: 10px;
+    }
+
+    #checkboxContainer label::before {
+    content: "\2610"; 
+    font-size: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    }
+
+    #checkboxContainer input[type="checkbox"]:checked + label::before {
+    content: "\2611"; 
+    color: #000000; 
+    }
+
+    #divToApplyStylesTo p {
+    margin-bottom: 0;
+    }
+    
+  </style>
+
+  <body>
+    <div id="pt1" class="hwParts" style="">
+        <h5 class="header text-center">
+            Style the text below
+        </h5>
+        <div id="divToApplyStylesTo" class="d-flex flex-column justify-content-center align-items-center bg-gray-rounded text-black" style="background-color: rgb(218, 228, 237); text-decoration: none; font-weight: normal; font-style: normal; font-size: 16px;">
+            <p>Style this part of the page by selecting:</p>
+            <p>a new background color</p>
+            <p>or new font style</p>
+        </div>
+        <h5 class="header text-center">
+            Part 1
+        </h5>
+        <div class="form-container d-flex justify-content-center">
+            <form id="myform">
+                <div class="container mb-3 d-flex flex-column align-items-center">
+                    <label id="legendRadioBtns" class="label-extended">Select a background color: </label>
+                    <div class="custom-radios d-flex w-50 mt-1" id="colorSwatch">
+                    <br>
+                    <input type="radio" id="color-1" name="color" value="color-1">
+                    <label for="color-1"><span style="background-color: rgb(218, 228, 237);"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon"></span>
+                      </label>
+                    <input type="radio" id="color-2" name="color" value="color-2">
+                      <label for="color-2"><span style="background-color: rgb(233, 246, 233);"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon"></span>
+                      </label>
+                    <input type="radio" id="color-3" name="color" value="color-3">
+                      <label for="color-3"><span style="background-color: rgb(233, 233, 246);"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon"></span>
+                    </label>
+                    <input type="radio" id="color-4" name="color" value="color-4">
+                      <label for="color-4"><span style="background-color: rgb(246, 233, 233);"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon"></span>
+                    </label>
+                    </div>
+                    <br><br>
+                    
+                    
+                    <label id="checkboxes" class="mt-3">Select a font style:</label>
+                    <div id="checkboxContainer" class="w-50 text-center">
+                        <input type="checkbox" id="underlineCheckbox">
+                        <label for="underlineCheckbox" class="fw-normal">Underline</label>
+
+                        <input type="checkbox" id="boldCheckbox">
+                        <label for="boldCheckbox" class="fw-normal">Bold</label>
+
+                        <input type="checkbox" id="italicCheckbox">
+                        <label class="fw-normal" for="italicCheckbox">Italic</label>
+                    </div>
+
+                    <br><br>
+                    <div class="fontSize mt-3">
+                        <label for="fontSizeSelect">Select Font Size: </label>
+                        <select id="fontSizeSelect">
+                            <option value="12">12px</option>
+                            <option value="16" selected="">16px</option>
+                            <option value="18">18px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br><br>
+
+    <footer class = "footer">
+        <a href = "hw7.html" class=" Home botton">Go Back to Hw7 Homepage</a>
+    </footer>
+    
+  </body>
+
+  <script>
+    $(document).ready(function () {
+    const radioLabel = document.createElement('label');
+    radioLabel.setAttribute('for', 'legendRadioBtns');
+    radioLabel.className = 'label-extended mt-3';
+
+    // Define colors
+    const colors = ['#dae4ed', '#e9f6e9', '#e9e9f6', '#f6e9e9'];
+
+    // Get the colorSwatch container
+    const colorSwatch = document.getElementById('colorSwatch');
+
+    // Dynamically create radio buttons
+    colors.forEach((color, index) => {
+        const radioBtn = document.createElement('input');
+        radioBtn.type = 'radio';
+        radioBtn.id = `color-${index + 1}`;
+        radioBtn.name = 'color';
+        radioBtn.value = `color-${index + 1}`;
+
+        const label = document.createElement('label');
+        label.htmlFor = `color-${index + 1}`;
+
+        const span = document.createElement('span');
+        span.style.backgroundColor = color;
+
+        const img = document.createElement('img');
+        img.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg';
+        img.alt = 'Checked Icon';
+
+        span.appendChild(img);
+        label.appendChild(span);
+
+        colorSwatch.appendChild(radioBtn);
+        colorSwatch.appendChild(label);
+    });
+
+    // Add event listener to update styles on radio button change
+    colorSwatch.addEventListener('change', (event) => {
+        const selectedColor = event.target.value;
+        const divToApplyStyles = document.getElementById('divToApplyStylesTo');
+        
+        // Update background color based on the selected radio button
+        divToApplyStyles.style.backgroundColor = colors[selectedColor.split('-')[1] - 1];
+    });
+
+    $('#colorSwatch').on('change', 'input[type="radio"]', function (event) {
+        const selectedColor = $(event.target).val();
+        $('#divToApplyStylesTo').css('backgroundColor', colors[selectedColor.split('-')[1] - 1]);
+    });
+
+    $('#underlineCheckbox, #boldCheckbox, #italicCheckbox').on('change', updateTextStyle);
+
+    $('#fontSizeSelect').on('change', function () {
+        const selectedFontSize = $(this).val();
+        $('#divToApplyStylesTo').css('fontSize', `${selectedFontSize}px`);
+    });
+
+    function updateTextStyle() {
+        const divToApplyStyles = $('#divToApplyStylesTo');
+
+        // Update text styles based on checkbox states
+        divToApplyStyles.css({
+            textDecoration: $('#underlineCheckbox').prop('checked') ? 'underline' : 'none',
+            fontWeight: $('#boldCheckbox').prop('checked') ? 'bold' : 'normal',
+            fontStyle: $('#italicCheckbox').prop('checked') ? 'italic' : 'normal',
+        });
+    }
+});
+
+  </script>
+
+</html>

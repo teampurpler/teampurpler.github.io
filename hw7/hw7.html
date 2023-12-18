@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CNIT 133 Homework 7</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Homework 7 for JavaScript, jQuery, AJAX course at CCSF">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" integrity="sha256-xLD7nhI62fcsEZK2/v8LsBcb4lG7dgULkuXoXB/j91c=" crossorigin="anonymous"></script>
+    <script src="script7.js"></script>
+  </head>
+
+  <style>
+    h1 {
+      background-color: bisque;
+      text-align: center;
+    }
+
+    button {
+      position: relative;
+      text-align: center;
+    }
+
+    h2 {
+      cursor: pointer;
+      text-align: center;
+    }
+    h2:hover{
+        color: #6e859a;
+    }
+    h2 i{
+        background: url(plus-circle.svg) no-repeat 0 4px;
+        min-width: 20px;
+        min-height: 20px;
+        text-align: center;
+    }
+    h2 i:hover{
+        background: url(plus-circle-fill.svg) no-repeat 0 4px;
+    }
+    h2 i.close {
+      background: url(dash-circle.svg) no-repeat 0 4px;
+    }
+    h2 i.close:hover{
+        background: url(dash-circle-fill.svg) no-repeat 0 4px;
+    }
+</style>
+
+  <body>
+    <div>
+      <header>
+            <h1>CNIT 133 Homework 7 - Object Model and Event Model</h1>
+      </header>
+      <nav>
+          <button type="button" onclick="window.location.href='../hw1.html';">Going back to Homepage</button>
+      </nav>
+      <main>
+        <h2><u>Part 1 </u><i class="i"></i></h2>
+        <div class="description" style="display: none;">
+                <p>Webpage that allows the user to change background color and text style using jQuery to Set CSS Classes and Attributes. <a href="hw7_part1.html">Click here to visit Part 1</a></p>
+        </div>
+        <br><br>
+        <h2><u>Part 2 </u><i class="i"></i></h2>
+        <div class="description" style="display: none;">
+            <p>Webpage that allows the user to navigate a menu of homeworks links using jQuery. <a href="hw7_part2.html">Click here to visit Part 2</a></p>
+        </div>
+      </main>
+    </div>
+
+</body>
+
+<script>
+  $(document).ready(function(){
+      $('.description').hide();
+      $('h2').click(function(){
+          $(this).next('.description').fadeToggle(400);
+          $(this).find('.i').toggleClass('close');
+      });
+ });
+</script>
+
+</html>
